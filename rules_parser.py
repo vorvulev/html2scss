@@ -2,8 +2,6 @@
 import copy
 from html.parser import HTMLParser
 
-from pprint import pprint
-
 from html2scss import *
 from html2scss.rules_parser import *
 
