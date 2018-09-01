@@ -13,6 +13,6 @@ class Html2scss(sublime_plugin.TextCommand):
 
 		parser = ScssRulesParser()
 		rules = parser.feed(html)
-		sublime.set_clipboard(rules)
-
-		sublime.active_window().status_message('scss rules copied!')
+		if (rules):
+			sublime.set_clipboard(rules)
+			sublime.active_window().status_message('scss rules copied!')

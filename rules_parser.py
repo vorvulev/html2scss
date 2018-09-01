@@ -11,7 +11,9 @@ class ScssRulesParser(HTMLParser):
 	def feed(self, data):
 		self.scope = []
 		super().feed(data)
-		return self.scope.group().rules();
+		return isinstance(self.scope, Element) \
+			and self.scope.group().rules() \
+			or None;
 
 	def handle_starttag(self, tag, attrs):
 		if (attrs):
