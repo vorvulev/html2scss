@@ -13,7 +13,7 @@ Now you can paste the rules in your scss file with `Ctrl+v`
 ## Example
 
 Input html:
-```
+```html
 <div class="class1">
 	<div class="class2" id="id2" >
 		<div>
@@ -29,7 +29,7 @@ Input html:
 </div>
 ```
 Result rules:
-```
+```scss
 .class1 {
 
 	#id2.class2 {
@@ -55,7 +55,7 @@ Result rules:
 }
 ```
 Result rules with `all_attrs`:
-```
+```scss
 .class1 {
 
 	#id2.class2 {
