@@ -8,9 +8,12 @@ from html2scss.rules_parser import *
 class ScssRulesParser(HTMLParser):
 	scope = []
 
-	def feed(self, data):
+	def feed(self, data, all_attrs = False):
 		self.scope = []
+		Element.all_attrs = all_attrs
+
 		super().feed(data)
+
 		return isinstance(self.scope, Element) \
 			and self.scope.group().rules() \
 			or None;
@@ -30,6 +33,8 @@ class ScssRulesParser(HTMLParser):
 				self.scope = elem
 
 class Element:
+	all_attrs = False
+
 	def __init__(self, attrs = [], is_mod = False):
 		self.is_mod = is_mod
 		self.childs = []
@@ -37,8 +42,12 @@ class Element:
 		self.classes = None
 
 		for attr in attrs:
-			# if (attr[0] != 'href'):
-			if (attr[0] in ['id', 'class']):
+			if (attr[0] != 'href' \
+				and (
+					self.all_attrs \
+					or attr[0] in ['id', 'class']
+				)
+			):
 				_class = getattr(
 					rules_parser,
 					'Attr' + attr[0].title(),

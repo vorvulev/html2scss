@@ -4,15 +4,12 @@ This plugin parse your html and puts its scss rules into clipboard
 
 ## Usage
 
-1. Add shortcut:
-```
-	{
-		"keys": ["alt+r"],
-		"command": "html2scss",
-	},
-```
-2. Run the in html file(you can use shortcut or command palete).
+The package provide 1 command - `html2scss` with 1 optional argument - `all_attrs = False`. You can use it with shortcut or run from command palette(`html2scss`)
 
-You'll see message in status bar: `scss rules copied!`
+After you run the command in your html file, you'll see message in status bar: `scss rules copied!`. By default all file will be parsed, but you can select any region you need.
 
-3. Open your scss file and press Ctrl+V
+Now you can paste the rules in your scss file with `Ctrl+v`
+
+## Example
+
+Input html
