@@ -66,6 +66,9 @@ class Element:
 	def addChild(self, elem):
 		self.childs.append(elem)
 
+	def append(self, elem):
+		self.addChild(elem)
+
 	def group(self):
 		patterns = {}
 		is_mod = False
